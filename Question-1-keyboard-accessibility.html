@@ -206,7 +206,10 @@ article p {
       <nav class="menu">
         <a href="#">Home</a>
         <a href="#">Politics</a>
+        <!--1. Interactive elements
         <a href="#" tabindex="-1">Business</a>
+        -->
+        <a href="#">Business</a>
         <a href="#">Entertainment</a>
         <a href="#">Sports</a>
         <a href="#" class="btn-search pull-right"><img src="https://raw.githubusercontent.com/udacity/ud891/2de2a0688c68809a3b453db3a24b1a59e8401459/lesson2-focus/02-dom-order/images/search.svg" alt="Search" />Search</a> 
@@ -223,7 +226,9 @@ article p {
     </div>
   </div>
   <main class="container">
-    <h2 class="offscreen">Top story</h2>
+    <!--2. Is the order logical and intuitive
+    <h2 class="offscreen">Top story</h2>-->
+    <h2 class="offscreen" tabindex="0">Top story</h2>
     <article class="main-story">
       <img class="pull-right" src="https://github.com/udacity/ud891/blob/gh-pages/lesson2-focus/02-dom-order/images/cat.jpg?raw=true" alt="A cat staring menacingly off into space">
       <div class="info">
@@ -243,7 +248,9 @@ article p {
         </div>
         <article>
           <h3 class="headline">Bee wonders if maybe everyone else is a drone and he's the only one who has it "figured out."</h3>
-          <p><a href="#" tabindex="1"><b>Read More</b></a></p>
+          <!--2. Is the order logical and intuitive
+          <p><a href="#" tabindex="1"><b>Read More</b></a></p>-->
+          <p><a href="#"><b>Read More</b></a></p>
           <img src="https://github.com/udacity/ud891/blob/gh-pages/lesson2-focus/02-dom-order/images/bee.jpg?raw=true" alt="A bee on top of a flower" />
         </article>
       </div>
@@ -290,12 +297,44 @@ article p {
   <footer>
   </footer>
   -->
-  
+  <footer>
+  <div class="container">
+    <!-- add some footer-->
+    <p>© 2025 The Funion. All rights reserved.</p>
+  </div>
+</footer>
+
+  <!--4. Expected behavior when interacting with interactive elements. -->
   <script>
     function getFocus() {
-      window.open('https://aidaform.com/templates/thank-you-page-with-redirects.html','mywindow').focus()
+    /*  window.open('https://aidaform.com/templates/thank-you-page-with-redirects.html','mywindow').focus()
+    */
+    const newWindow = window.open('https://aidaform.com/templates/thank-you-page-with-redirects.html', 'mywindow');
+    newWindow.focus();
     }
     </script>
+    <!--3. indicators for all interactive elements are visible -->
+    <!--4. Expected behavior when interacting with interactive elements. -->
+  <style>
+    .offscreen {
+      position: absolute;
+      left: -9999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible {
+      outline: 2px solid #007bff;
+      outline-offset: 2px;
+    }
+    button {
+      cursor: pointer;
+      padding: 5px 10px;
+    }
+  </style>
 </body>
 
 </html>
